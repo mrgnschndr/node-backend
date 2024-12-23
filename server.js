@@ -45,6 +45,7 @@ const developerNotes = require("./developerNotes.json");
 const express = require("express");
 require("dotenv").config();
 const cors = require('cors');
+const { faker } = require("@faker-js/faker");
 
 
 const app = express();
@@ -62,6 +63,15 @@ app.post("/documentation", (req, res) => {
     res.json({
         "test": "Documentation created"
     })
+})
+
+app.get("/products", (req, res) => {
+    let product = {
+        name: faker.commerce.productName(),
+        description: faker.commerce.productDescription(),
+        price: faker.commerce.price(),
+        company: faker.company.name()
+    }
 })
 
 
