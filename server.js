@@ -41,7 +41,7 @@
 
 
 
-
+const developerNotes = require("./developerNotes.json");
 const express = require("express");
 require("dotenv").config();
 const cors = require('cors');
@@ -55,9 +55,7 @@ app.use(cors({}));
 // Domain: http://localhost:5000
 app.get("/documentation", (req, res) => {
     // get documentation from database
-    res.json({
-        "test": "Proof of Life"
-    })
+    res.json(developerNotes)
 })
 
 app.post("/documentation", (req, res) => {
