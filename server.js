@@ -66,12 +66,16 @@ app.post("/documentation", (req, res) => {
 })
 
 app.get("/products", (req, res) => {
-    let product = {
+    let prodArray = [];
+    for (let i = 0; i < 40; i++) {
+        prodArray[i] = {
         name: faker.commerce.productName(),
         description: faker.commerce.productDescription(),
         price: faker.commerce.price(),
         company: faker.company.name()
+        }
     }
+    res.json(prodArray);
 })
 
 
